@@ -45,6 +45,8 @@ class Header extends React.Component {
 							className="formula-field" 
 							type="text" 
 							placeholder="Type your formula..."
+							autocorrect="off" 
+							autocapitalize="none"
 							defaultValue={this.state.formula} 
 							onChange={this.updateFormula}
 							onKeyPress={this.onKeyPress}
