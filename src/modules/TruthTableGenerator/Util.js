@@ -20,6 +20,11 @@ export function isOperand(c) {
 	return (c >= 'a' && c <= 'z');
 }
 
+/* Determines if char c is T(true) or F(false) */
+export function isBoolean(c) {
+	return (c === 'T' || c === 'F');
+}
+
 /*  Removes all whitespace from string */
 export function removeWhitespace(formula) {
 	let s = '';

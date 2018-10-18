@@ -31,7 +31,7 @@ class Legend extends React.Component {
 	renderDetails() {
 		return (
 			<div id="details">
-				<p>Use the above characters to replace the logical connectives. Identifiers should only be lower case letters (p, q, r...)</p>
+				<p>Use the above characters to replace the logical connectives. Identifiers should only be lower case letters (p, q, r...). You can use T and F for true and false.</p>
 				<p className="example"> Example: ~(p^q) &lt;=&gt; ~pV~q </p>
 			</div>
 		);

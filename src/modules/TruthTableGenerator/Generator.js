@@ -1,7 +1,7 @@
 'use strict';
 import Proposition from './Proposition';
 import { Operator, OpPriority as priority } from './Util';
-import { isOperand, removeWhitespace } from './Util';
+import { isOperand, isBoolean, removeWhitespace } from './Util';
 
 const {
 	AND,
@@ -28,7 +28,7 @@ class TruthTableGenerator {
 		this.formula = removeWhitespace(formula);
 		this.poli = ''; // polish notation of the formula
 		this.operands = []; // the operands in the formula (p, q, r...)
-		this.opValues = {}; // the values of the operands used for evaluation
+		this.opValues = {'T': 1, 'F': 0}; // the values of the operands used for evaluation
 		this.props = []; // the compound propositions in the formula(p^q, pVq...) and their values
 		this.truthTable = new Map();
 
@@ -104,9 +104,10 @@ class TruthTableGenerator {
 		const propValues = {}; // map of propositions. used to remove duplicates
 		const stack = []; // the stack of {Propositions}
 
+		// op stands for operand of operator, the only possible entities in poli
 		for (const op of this.poli) {
 			// If operand -> convert to proposition and push to stack
-			if (op >= 'a' && op <= 'z') { 
+			if (isOperand(op) || isBoolean(op)) { 
 				stack.push(new Proposition(op, this.opValues[op]));
 			} else { 
 				// Else if operator -> apply it and form a new compound proposition
@@ -171,11 +172,11 @@ class TruthTableGenerator {
 			if (formula[i] === ' ') continue;
 			const c = formula[i];
 
-			// If operand -> push to poli
-			if (isOperand(c)) { 
+			// If operand or boolean -> push to poli
+			if (isOperand(c) || isBoolean(c)) { 
 				this.poli += c;
 
-				if (!this.operands.includes(c)) { // operand not registered
+				if (isOperand(c) && !this.operands.includes(c)) { // operand not registered
 					this.operands.push(c);
 				}
 			} else { // It should be an operator -> determine which
