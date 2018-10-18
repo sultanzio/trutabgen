@@ -1,0 +1,296 @@
+@import './_base/base';
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+body {
+	font-family: monospace;
+}
+
+/* Background Themes */
+body.theme-blue {
+	.background { background: linear-gradient(45deg, #1D6FA3, #65FDF0); }
+	.generate-button:hover {
+		color: #0bbaff;
+	}
+}
+body.theme-orange {
+	.background { background: linear-gradient(45deg, #ff4e50, #f9d423); }
+	.generate-button:hover {
+		color: #ff4e50;
+	}
+}
+body.theme-red {
+	.background { background: linear-gradient(180deg, #fc354c, #3c0000); }
+	.generate-button:hover {
+		color: #fc354c;
+	}
+}
+body.theme-purple {
+	.background { background: linear-gradient(to right, #4776e6, #8e54e9); }
+	.generate-button:hover {
+		color: #4776e6;
+	}
+}
+body.theme-purple-dark {
+	.background { background: linear-gradient(to right, #aa076b, #61045f); }
+	.generate-button:hover {
+		color: #aa076b;
+	}
+}
+
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 1s;
+	z-index: -1;
+}
+
+main {
+	display: block;
+	padding-top: 80px;
+	animation: show .4s;
+}
+
+#title {
+	margin-bottom: 60px;
+	width: 100%;
+	text-align: center;
+	font-family: 'Courgette', sans-serif;
+	font-size: 40px;
+	font-weight: 900;
+	color: rgba(#fff, 1);
+}
+
+#header {
+	color: #fff;
+}
+
+.formula-field, .generate-button {
+	padding: 19px 20px;
+	background: rgba(#fff, 0);
+	border: 2px solid #fff;
+	border-radius: 10px;
+	transition: background .15s, transform .15s;
+}
+
+.formula-field {
+	flex: 1 1 290px;
+	min-width: 290px;
+	margin-right: 15px;
+	color: inherit;
+	font-size: 1.8rem;
+	outline: none;
+
+	&:focus {
+		background: #fff;
+		color: #666;
+		box-shadow: $shadow;
+	}
+
+	&::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: #fff;
+		opacity: 1; /* Firefox */
+	}
+}
+
+.generate-button {
+	text-align: center;
+	font-weight: 700;
+	font-size: 2.1rem;
+	cursor: pointer;
+
+	&:hover {
+		background: #fff;
+		color: #0bbaff;
+		box-shadow: $shadow;
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
+}
+
+#legend {
+	position: relative;
+	max-height: 500px;
+	transition: .2s;
+	border-radius: 10px;
+	overflow: hidden;
+	background: rgba(#fff, .17);
+
+	.legend__content {
+		transition: .3s;
+	
+		h3 {
+			font-size: 1.6rem;
+		}
+		#operands {
+			font-size: 1.6rem;
+		}
+		#details p {
+			margin: 3px 0;
+		}
+		#details .example {
+			font-weight: 700;
+		}
+	}
+
+	.legend__closed {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 8px 18px;
+		color: #fff;
+		box-shadow: none;
+		background: transparent;
+
+		h3 {
+			float: left;
+			margin-top: 5px;
+		}
+	}
+
+	.openBtn {
+		float: right;
+		padding: 8px 13px;
+		font-size: 1.5rem;
+		border-radius: 10px;
+		background: rgba(#fff, .17);
+	}
+}
+
+#legend.closed {
+	max-height: 49px;
+
+	.legend__content {
+		opacity: 0;
+	}
+
+	.legend__closed {
+		display: block;
+		animation: appear .4s;
+	}
+}
+
+@keyframes appear {
+		0% { display: none; opacity: 0; }
+		50% {display: none; opacity: 0; transform: translateY(20px); }
+		100% {display: block; opacity: 1; transform: translateY(0); }
+	}
+
+@media screen and (max-width: 366px) {
+	#legend {
+		#operands {
+			flex-direction: column;
+		}
+		.operand__original:after {
+			content: ":";
+		}
+		.operand {
+			flex-direction: row;
+		}
+		.operand__code {
+			margin-left: 10px;
+		}
+	}
+}
+
+#truth-table-section {
+	text-align: center;
+}
+
+.alert {
+	color: #f33333;
+}
+
+.truth-table {
+	display: inline-block;
+	max-width: 1366px;
+	overflow-x: auto;
+	white-space: nowrap;
+	padding: 5px 10px;
+	font-size: 1.8rem;
+	border-radius: 10px;
+	transition: .2s;
+	animation: show .4s;
+	will-change: opacity, transform;
+}
+
+@media screen and (max-width: 1366px) {
+	.truth-table {
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width: 490px) {
+	main {
+		padding-top: 40px;
+	}
+	#title {
+		font-size: 35px;
+		margin-bottom: 30px;
+	}
+	.generate-button {
+		margin-top: 10px;
+	}
+}
+
+.proposition {
+	display: inline-block;
+	text-align: center;
+
+	.proposition__header {
+		padding: 7px 20px;
+		font-weight: 700;
+	}
+
+	.proposition__value {
+		padding: 5px 0;
+	}
+}
+
+.proposition__value:nth-child(even) {
+	background: rgba(#000, .05);
+}
+
+// ALT
+// .formula-field, .generate-button {
+// 	padding: 20px 25px;
+// 	border: none;
+// 	background: rgba(#fff, .2);
+// 	box-shadow: none;
+// 	transition: .15s;
+// }
+// .truth-table {
+// 	background: rgba(#fff, .1);
+// 	color: #fff;
+// 	box-shadow: none;
+// }
+
+//ALT2 with border bottom in truth table
+.truth-table {
+	.proposition__header {
+		border-bottom: 1px solid #e0e0e0;
+	}
+	.proposition__value:not(:last-child) {
+		border-bottom: 1px solid #eee; 
+	}
+	.proposition__value:nth-child(even) {
+		background: transparent;
+	}
+}
+
+
+@keyframes show {
+	0% {
+		opacity: 0;
+		transform:  translateY(25px);
+	}
+	100% {
+		opacity: 1;
+		transform:  translateY(0px);
+	}
+}
