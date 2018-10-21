@@ -5,10 +5,14 @@
 	background: rgba(#fff, .17);
 	transition: max-height .2s ease-in;
 	overflow: hidden;
+	backface-visibility: hidden;
+	will-change: max-height;
 }
 
 .legend__content {
 	transition: opacity .2s;
+	backface-visibility: hidden;
+	will-change: opacity;
 
 	h3 {
 		font-size: 16px;
@@ -29,7 +33,7 @@
 }
 
 .legend__closed {
-	visibility: hidden;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -37,6 +41,8 @@
 	color: #fff;
 	box-shadow: none;
 	background: transparent;
+	backface-visibility: hidden;
+	will-change: opacity, transform;
 
 	h3 {
 		float: left;
@@ -61,7 +67,7 @@
 	}
 
 	.legend__closed {
-		visibility: visible;
+		display: block;
 		animation: appear .35s;
 	}
 }
@@ -69,9 +75,9 @@
 
 
 @keyframes appear {
-	0% { opacity: 0; }
-	50% { opacity: 0; transform: translateY(20px); }
-	100% { opacity: 1; transform: translateY(0); }
+	0% { display: none; opacity: 0; }
+	50% { display: none; opacity: 0; transform: translateY(20px); }
+	100% { display: block; opacity: 1; transform: translateY(0); }
 }
 
 
