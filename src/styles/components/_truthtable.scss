@@ -33,7 +33,7 @@
 
 .proposition__value {
     padding: 5px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(0,0,0,.1);
 
     &:last-child {
         border-bottom: none; 
@@ -41,9 +41,6 @@
 }
 
 
-.proposition__value:nth-child(even) {
-    background: rgba(#000, .05);
-}
 
 
 @media screen and (max-width: 1366px) {
