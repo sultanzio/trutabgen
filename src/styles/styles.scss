@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+@import './_base/base';
+@import './components/header';
+@import './components/legend';
+@import './components/truthtable';
+
+body {
+	font-family: monospace;
+}
+
+/* Background Themes */
+body.theme-blue {
+	.background { background: linear-gradient(45deg, #1D6FA3, #65FDF0); }
+	.generate-button:hover {
+		color: #0bbaff;
+	}
+}
+body.theme-orange {
+	.background { background: linear-gradient(45deg, #ff4e50, #f9d423); }
+	.generate-button:hover {
+		color: #ff4e50;
+	}
+}
+body.theme-red {
+	.background { background: linear-gradient(180deg, #fc354c, #3c0000); }
+	.generate-button:hover {
+		color: #fc354c;
+	}
+}
+body.theme-purple {
+	.background { background: linear-gradient(to right, #4776e6, #8e54e9); }
+	.generate-button:hover {
+		color: #4776e6;
+	}
+}
+body.theme-purple-dark {
+	.background { background: linear-gradient(to right, #aa076b, #61045f); }
+	.generate-button:hover {
+		color: #aa076b;
+	}
+}
+
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 1s;
+	z-index: -1;
+}
+
+main {
+	display: block;
+	animation: show .4s;
+}
+
+#title {
+	margin-top: 8vmin;
+	margin-bottom: 6vmin;
+	font-size: 40px;
+	font-weight: 900;
+	font-family: 'Courgette', sans-serif;
+	text-align: center;
+	color: rgba(#fff, 1);
+	white-space: normal;
+}
+
+
+
+@media screen and (max-width: 750px) {
+    #title {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+	#title {
+		font-size: 30px;
+		margin-top: 6vmin;
+		margin-bottom: 5vmin;
+	}
+}
+
+
+@media screen and (max-width: 500px) {
+
+
+	
+}
+
+
+
+// ALT
+// .formula-field, .generate-button {
+// 	padding: 20px 25px;
+// 	border: none;
+// 	background: rgba(#fff, .2);
+// 	box-shadow: none;
+// 	transition: .15s;
+// }
+// .truth-table {
+// 	background: rgba(#fff, .1);
+// 	color: #fff;
+// 	box-shadow: none;
+// }
+

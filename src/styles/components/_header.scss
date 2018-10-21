@@ -1,0 +1,81 @@
+#header {
+    color: #fff;
+    flex-wrap: nowrap;
+}
+
+.formula-field, .generate-button {
+	padding: 19px 20px;
+	background: rgba(#fff, 0);
+	border: 2px solid #fff;
+	border-radius: 10px;
+    transition: background .15s, transform .15s;
+    will-change: background, transform;
+}
+
+.formula-field {
+    flex-grow: 1;
+	margin-right: 15px;
+	color: inherit;
+	font-size: 18px;
+	outline: none;
+
+	&:focus {
+		background: #fff;
+		color: #666;
+		box-shadow: $shadow;
+	}
+
+	&::placeholder {
+		color: #fff;
+		opacity: 1;
+	}
+}
+
+.generate-button {
+	font-weight: 700;
+	font-size: 21px;
+
+	&:hover {
+		background: #fff;
+		color: #0bbaff;
+		box-shadow: $shadow;
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
+}
+
+
+
+@media screen and (max-width: 500px) {
+	#header {
+		flex-direction: column;
+    }
+
+
+	.formula-field {
+		margin-right: 0;
+    }
+    
+	.generate-button {
+		align-self: center;
+		margin-top: 10px;
+	}
+}
+
+
+@media screen and (max-height: 700px) {
+    .formula-field, .generate-button {
+        padding: 15px 17px;
+        border-radius: 9px;
+    }
+
+	.formula-field {
+        font-size: 16px;
+    }
+
+    .generate-button {
+        font-size: 17px;
+    }
+}

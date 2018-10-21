@@ -15,7 +15,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new MiniCssExtract({ filename: 'style.css' })
+		new MiniCssExtract({ filename: 'styles.css' })
 	],
 	output: { 
 		filename: 'bundle.js' 

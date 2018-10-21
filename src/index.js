@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import "@babel/polyfill";
 import 'normalize.css';
-import './styles/style.scss';
+import './styles/styles.scss';
 import App from './components/App';
 
 /* Random Background Theme */

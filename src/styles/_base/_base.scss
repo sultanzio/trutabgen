@@ -4,18 +4,8 @@
 	box-sizing: border-box;
 }
 
-html, body {
-	margin: 0;
-	padding: 0;
-}
-
-html {
-	font-size: 62.5%;
-}
 
 body {
-	font-size: 16px; /* px fallback */
-	font-size: 1.6rem; /* default font-size for document */
 	line-height: 1.5; /* a nice line-height */
 	color: #666;
 }
@@ -65,7 +55,6 @@ section {
 
 .flex-row {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 
 	&.space-between {

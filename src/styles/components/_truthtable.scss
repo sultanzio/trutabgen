@@ -1,0 +1,65 @@
+
+#truth-table-section {
+	text-align: center;
+}
+
+.alert {
+	color: #f33333;
+}
+
+.truth-table {
+	display: inline-block;
+	max-width: 1366px;
+	overflow-x: auto;
+	white-space: nowrap;
+	padding: 5px 10px;
+	font-size: 18px;
+	border-radius: 10px;
+	transition: .2s;
+	animation: truth-table-show .4s;
+	will-change: opacity, transform;
+}
+
+.proposition {
+	display: inline-block;
+	text-align: center;
+}
+
+.proposition__header {
+    padding: 7px 20px;
+    font-weight: 700;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.proposition__value {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+        border-bottom: none; 
+    }
+}
+
+
+.proposition__value:nth-child(even) {
+    background: rgba(#000, .05);
+}
+
+
+@media screen and (max-width: 1366px) {
+	.truth-table {
+		max-width: 100%;
+	}
+}
+
+
+@keyframes truth-table-show {
+	0% {
+		opacity: 0;
+		transform:  translateY(25px);
+	}
+	100% {
+		opacity: 1;
+		transform:  translateY(0px);
+	}
+}
