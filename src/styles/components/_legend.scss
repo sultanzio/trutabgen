@@ -1,43 +1,46 @@
 #legend {
 	position: relative;
-	max-height: 500px;
-	transition: .2s;
+	max-height: 331px;
 	border-radius: 10px;
-	overflow: hidden;
 	background: rgba(#fff, .17);
+	transition: max-height .2s ease-in;
+	overflow: hidden;
+}
 
-	.legend__content {
-		transition: .3s;
-	
-		h3 {
-			font-size: 16px;
-		}
-		#operands {
-			flex-wrap: wrap;
-			font-size: 16px;
-		}
-		#details p {
-			margin: 3px 0;
-		}
-		#details .example {
-			font-weight: 700;
-		}
+.legend__content {
+	transition: opacity .2s;
+
+	h3 {
+		font-size: 16px;
 	}
 
-	.legend__closed {
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		padding: 8px 18px;
-		color: #fff;
-		box-shadow: none;
-		background: transparent;
+	#operands {
+		flex-wrap: wrap;
+		font-size: 16px;
+	}
 
-		h3 {
-			float: left;
-			margin-top: 5px;
-		}
+	#details p {
+		margin: 3px 0;
+	}
+
+	#details .example {
+		font-weight: 700;
+	}
+}
+
+.legend__closed {
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 8px 18px;
+	color: #fff;
+	box-shadow: none;
+	background: transparent;
+
+	h3 {
+		float: left;
+		margin-top: 5px;
 	}
 
 	.openBtn {
@@ -51,22 +54,27 @@
 
 #legend.closed {
 	max-height: 49px;
+	transition: max-height .2s ease-out;
 
 	.legend__content {
 		opacity: 0;
 	}
 
 	.legend__closed {
-		display: block;
-		animation: appear .4s;
+		visibility: visible;
+		animation: appear .35s;
 	}
 }
 
+
+
 @keyframes appear {
-	0% { display: none; opacity: 0; }
-	50% {display: none; opacity: 0; transform: translateY(20px); }
-	100% {display: block; opacity: 1; transform: translateY(0); }
+	0% { opacity: 0; }
+	50% { opacity: 0; transform: translateY(20px); }
+	100% { opacity: 1; transform: translateY(0); }
 }
+
+
 
 @media screen and (max-width: 366px) {
 	#legend {
