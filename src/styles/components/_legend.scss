@@ -3,7 +3,7 @@
 	max-height: 331px;
 	border-radius: 10px;
 	background: rgba(#fff, .17);
-	transition: max-height .2s ease-in;
+	transition: max-height .2s;
 	overflow: hidden;
 	backface-visibility: hidden;
 	will-change: max-height;
@@ -60,7 +60,6 @@
 
 #legend.closed {
 	max-height: 49px;
-	transition: max-height .2s ease-out;
 
 	.legend__content {
 		opacity: 0;
