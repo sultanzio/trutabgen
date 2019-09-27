@@ -2,6 +2,8 @@
 A simple step by step logical truth table generator.
 Live at: https://trutabgen.com
 
+![Image of truth table](./poster.png)
+
 ## Usage
 Input any logical formula using the following operators:
 
@@ -13,5 +15,3 @@ Input any logical formula using the following operators:
 
 Examples: ~(p^q) <=> ~pV~q
 ! Uppercase identifiers are not allowed: A, B..
-
-![Image of truth table](./poster.png)
