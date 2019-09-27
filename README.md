@@ -13,5 +13,5 @@ Input any logical formula using the following operators:
 4. IMPLICATION: =>
 5. EQUIVALENCE: <=>
 
-Examples: ~(p^q) <=> ~pV~q
-! Uppercase identifiers are not allowed: A, B..
+Examples: ~(p^q) <=> ~p V ~q  
+!Uppercase identifiers are not allowed: A, B..
